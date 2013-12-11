@@ -1,0 +1,95 @@
+<!-- app/Resources/views/base.html.twig -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
+        <title>{% block title %}TodoCerdo{% endblock %}</title>
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        {%block stylesheets%}
+            <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+ 
+            
+        {%endblock%}
+        <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
+
+    </head>
+    <body>
+        
+            {% for key, message in app.session.getFlashes() %}
+            <div class="{{ key }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+            {% endfor %}
+
+        <section id="wrapper">
+            <header id="header">
+              
+                <div class="top" style=" background-color: transparent;  background: no-repeat">
+                    {% block navigation %}
+                        <nav>
+                            <div id="wrap" class="navigation">
+        
+                            
+                            <ul id="menu">
+                                <li> <a href="{{ path('TodoCerdoTodoCerdoBundle_homepage') }}">Home</a> </li>
+                                <li> <a href="{{ path('TodoCerdoTodoCerdoBundle_about') }}">Sobre</a> </li>
+                                <li> <a href="{{ path('TodoCerdoTodoCerdoBundle_productos') }}">Productos</a> </li>
+                                <li> <a href="{{ path('receta') }}">Receta</a> </li>
+                                <li> <a href="{{ path('TodoCerdoTodoCerdoBundle_faq') }}">Preguntas Frecuentes</a> </li>
+                                <li> <a href="{{ path('TodoCerdoTodoCerdoBundle_contact') }}">Contacto</a> </li>
+                                <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a href="{{ path('fos_user_security_logout') }}" > {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}" >{{ 'login'|trans({}, 'FOSUserBundle') }}</a>
+                                {% endif %}
+                                </li>
+                            </ul>                        
+                        </div>
+                        </nav>
+                    {% endblock %}
+                    
+                </div>
+                <center>
+                    {% image '@TodoCerdoTodoCerdoBundle/Resources/public/images/cabezera.jpg' %}
+                        <img src="{{ asset_url }}"/>
+                    {% endimage %}
+                    
+                </center>
+               <!-- <hgroup>
+                    
+                    <h2>{% block blog_title %}<a href="{{ path('TodoCerdoTodoCerdoBundle_homepage') }}">Todo Cerdo</a>{% endblock %}</h2>
+                    <h3>{% block blog_tagline %}<a href="{{ path('TodoCerdoTodoCerdoBundle_homepage') }}">Delivery</a>{% endblock %}</h3>
+                </hgroup>-->
+            </header>
+                
+            <section class="main-col">
+                {% block body %}{% endblock %}
+            </section>
+            <aside class="sidebar">
+                {% block sidebar %}{% endblock %}
+            </aside>
+
+                <div id="footer" >
+                    
+                {% block footer %}
+                    Copyright © 2012 Todos los Derechos Reservados-Santa Fe, Argentina
+
+
+                {% endblock %}
+            </div>
+        </section>
+
+        {% block javascripts %}
+
+        {% endblock %}
+            
+   
+    </body>
+</html>
