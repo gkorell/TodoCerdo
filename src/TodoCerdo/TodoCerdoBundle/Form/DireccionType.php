@@ -12,13 +12,13 @@
 namespace TodoCerdo\TodoCerdoBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 
 
 class DireccionType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         
         /* Aca me pide ubicación pero no existe ninguna ubicacion en la entidad 

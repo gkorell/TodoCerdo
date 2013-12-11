@@ -55,7 +55,7 @@ class Producto
     /**
      * @var decimal $pesoAproximado
      *
-     * @ORM\Column(name="peso_aproximado", type="decimal", precision="4", scale="3", nullable=false)
+     * @ORM\Column(name="peso_aproximado", type="decimal", precision=4, scale=3, nullable=false)
      */
     protected $pesoAproximado;
 

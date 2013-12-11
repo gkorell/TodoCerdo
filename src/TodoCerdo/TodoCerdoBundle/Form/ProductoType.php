@@ -2,11 +2,11 @@
 namespace TodoCerdo\TodoCerdoBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class ProductoType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre','text',array('label'=>'Nombre'));
         $builder->add('descripcion','text',array('label'=>'Descripción'));

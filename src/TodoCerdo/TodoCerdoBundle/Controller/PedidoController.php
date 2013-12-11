@@ -50,7 +50,7 @@ class PedidoController extends Controller {
         //aca persisto la direccion
         if ($request->getMethod() == "POST") {
             $direccion->setUsuario($ObjUsuario);
-            $form->bindRequest($request);
+            $form->bind($request);
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();

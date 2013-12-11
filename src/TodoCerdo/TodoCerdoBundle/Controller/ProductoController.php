@@ -41,7 +41,7 @@ class ProductoController extends Controller
         $request = $this->getRequest();
         
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
+            $form->bind($request);
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
@@ -106,7 +106,7 @@ class ProductoController extends Controller
         $request = Request::createFromGlobals();
         if ($request->getMethod() == 'POST') {
             
-            $editForm->bindRequest($request);
+            $editForm->bind($request);
         
             $valido=false;
             $valido=$editForm->isValid();
@@ -133,7 +133,7 @@ class ProductoController extends Controller
         $form = $this->createDeleteForm($idProducto);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
