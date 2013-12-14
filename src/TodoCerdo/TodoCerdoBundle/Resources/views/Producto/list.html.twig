@@ -61,19 +61,19 @@
                                     </button>
                                </td>
                             </tr>
+                            
                         </tbody>
                     </table>
-                            
+                          
                             
                     </form>
                 </div>
             </div>
-            <!--dl>
-                {# if is_granted("ROLE_ADMIN") %}
-                <dd><a href="{{ path('TodoCerdoTodoCerdoBundle_editarproducto',{'idProducto':producto.id}) }}">Editar</a></dd>
-                {% endif #}
-            </dl-->
+         
         </div>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a class="editar" href="{{ path('TodoCerdoTodoCerdoBundle_editarproducto',{'idProducto':producto.id}) }}">Editar</a>
+            {% endif %}
     </li>
     {% else %}
         
@@ -86,7 +86,7 @@
 <ul>
     <li>
         {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('TodoCerdoTodoCerdoBundle_newproducto') }}">Agregar un producto</a>
+        <a  href="{{ path('TodoCerdoTodoCerdoBundle_newproducto') }}">Agregar un producto</a>
         {% endif %}
     </li>
     <br/>
