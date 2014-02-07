@@ -14,7 +14,7 @@ class ProductoController extends Controller
 {
     public function listAction($idTipo)
     {
-        //$em = $this->getDoctrine()->getEntityManager();
+        //$em = $this->getDoctrine()->getManager();
         $productos = $this->getDoctrine()->getRepository('TodoCerdoTodoCerdoBundle:Producto')
                 ->findByTipoProducto($idTipo);
                 
@@ -26,7 +26,7 @@ class ProductoController extends Controller
     
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $tipoProductos = $em->getRepository('TodoCerdoTodoCerdoBundle:TipoProducto')->findAll();
         
         return $this->render('TodoCerdoTodoCerdoBundle:Producto:index.html.twig',array('tipoProductos'=>$tipoProductos));
@@ -44,7 +44,7 @@ class ProductoController extends Controller
             $form->bind($request);
 
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getManager();
                 $em->persist($producto);
                 $em->flush();
 
@@ -63,7 +63,7 @@ class ProductoController extends Controller
     //renderiza el formulario de editar producto y llama a update
     public function editarAction($idProducto){
                 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $producto_modif = $em->getRepository('TodoCerdoTodoCerdoBundle:Producto')->find($idProducto);
         
         
@@ -88,7 +88,7 @@ class ProductoController extends Controller
     //realiza el update del producto en la base de datos, hace la accion de editar
     public function updateAction($idProducto)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $producto = $em->getRepository('TodoCerdoTodoCerdoBundle:Producto')->find($idProducto);
 
@@ -136,7 +136,7 @@ class ProductoController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TodoCerdoTodoCerdoBundle:Producto')->find($idProducto);
 
             if (!$entity) {
@@ -154,7 +154,7 @@ class ProductoController extends Controller
       
             $id=$this->getRequest()->get("id");//obtiene el id del request
         
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $producto = $em->getRepository('TodoCerdoTodoCerdoBundle:Producto')->find($id);//devuelve un producto por id
             
             $descripcion=$producto->getDescripcion();

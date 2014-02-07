@@ -19,7 +19,7 @@ class RecetaController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('TodoCerdoTodoCerdoBundle:Receta')->findAll();
 

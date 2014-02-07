@@ -14,11 +14,12 @@
     </header>
 
 {# esto es para la salida de los mensajes flash #}
-{% if app.session.hasFlash('blogger-notice') %}
+{% for flashMessage in app.session.FlashBag.get('blogger-notice') %}
+
     <div class="blogger-notice">
-        {{ app.session.flash('blogger-notice') }}
+        {{ flashMessage }}
     </div>
-{% endif %}
+{% endfor %}
 
     <p>¿Desea contactarce con nosotros para enviarnos sugerencias o preguntas?</p>
     <form class="blogger" action="{{ path('TodoCerdoTodoCerdoBundle_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">

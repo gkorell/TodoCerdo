@@ -6,17 +6,42 @@
 namespace TodoCerdo\TodoCerdoBundle\Entity;
 
 //Esto use se exportan para los validadores, es decir para hacer la validacion de lo datos del formulario
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\MinLength;
-use Symfony\Component\Validator\Constraints\MaxLength;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Contacto {
+    
 
+    /**
+     *
+     * @Assert\NotBlank 
+     */
     protected $nombre;
+    
+    /**
+     * @Assert\Email(
+     *     message = "El email '{{ value }}' no es válido.",
+     *     checkMX = true
+     * )
+     */
     protected $email;
+    
+    /**
+     *
+     * @Assert\NotBlank 
+     * @Assert\Length(
+     *      max = "50",
+     *      maxMessage = "El asunto no puede ser mayor a  {{ limit }} caracteres."
+     * )
+     */     
     protected $asunto;
+    
+    /**
+     *
+     * @Assert\Length(
+     *      min = "50",
+     *      minMessage = "El mensaje no puede ser menor a  {{ limit }} caracteres."
+     * )
+     */     
     protected $mensaje;
 
     public function getNombre() {
@@ -51,17 +76,5 @@ class Contacto {
         $this->mensaje = $mensaje;
     }
 
-    //Funcion loadvalidator se usa para definir los validadores de  los datos del formulario, antes se debe exportar los use correspondientes
-    public static function loadValidatorMetadata(ClassMetadata $metadata) {
-        //el objeto Smetadata nos sirve para setear las propiedades de la entidad Entity
-        $metadata->addPropertyConstraint('nombre', new NotBlank());
-        // este objeto Email() sirve para validar que el email sea correcto aunque yo no estoy seguro que funcione correctamente.
-        $metadata->addPropertyConstraint('email', new Email());
-
-        $metadata->addPropertyConstraint('asunto', new NotBlank());
-        $metadata->addPropertyConstraint('asunto', new MaxLength(50));
-
-        $metadata->addPropertyConstraint('mensaje', new MinLength(50));
-    }
 
 }

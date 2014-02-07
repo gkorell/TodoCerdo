@@ -53,7 +53,7 @@ class PedidoController extends Controller {
             $form->bind($request);
 
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getManager();
                 $em->persist($direccion);
                 $em->flush();
             }
@@ -73,7 +73,7 @@ class PedidoController extends Controller {
 
         $id = $this->getRequest()->get("id"); //obtiene el id del request
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         //este no le gusta
         $zonas = $em->getRepository('TodoCerdoTodoCerdoBundle:Zona')
                 ->findByLocalidad($id); //devuelve las zonas  por id

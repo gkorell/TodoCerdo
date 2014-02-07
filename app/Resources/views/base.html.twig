@@ -20,11 +20,15 @@
     </head>
     <body>
         
-            {% for key, message in app.session.getFlashes() %}
-            <div class="{{ key }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
+
+        {% for type, messages in app.session.flashbag.all() %}
+              {% for key, message in messages %}
+        <div class="flash-{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
             </div>
-            {% endfor %}
+           {% endfor %}
+             {% endfor %}
+
 
         <section id="wrapper">
             <header id="header">

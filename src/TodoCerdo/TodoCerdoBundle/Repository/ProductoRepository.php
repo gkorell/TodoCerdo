@@ -13,7 +13,7 @@ class ProductoRepository extends EntityRepository
 {
     public function findAllOrderByName()
     {
-        return $this->getEntityManager()
+        return $this->getManager()
                 ->createQuery('SELECT p FROM TodoCerdoTodoCerdoBundle:Producto p ORDER BY p.nombre ASC')
                 ->getResult();
     }
