@@ -1,0 +1,15 @@
+## YAML Template.
+---
+parameters:
+  database_driver: pdo_mysql
+  database_host: localhost
+  database_port: 3306
+  database_name: TodoCerdo
+  database_user: root
+  database_password: admin
+  mailer_transport: smtp
+  mailer_host: localhost
+  mailer_user : ~
+  mailer_password: ~
+  locale: es
+  secret: e99089ccf2da34105248830ec551023831
