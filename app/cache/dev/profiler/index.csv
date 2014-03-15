@@ -1,0 +1,10 @@
+bf9b37,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/,1394922268,
+35eadf,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Des%26_controller%3DTodoCerdoTodoCerdoBundle%253APage%253Asidebar,1394922268,bf9b37
+443f99,127.0.0.1,GET,http://www.todocerdo.com/,1394922275,
+92673a,127.0.0.1,GET,http://www.todocerdo.com/_fragment?_path=_format%3Dhtml%26_locale%3Des%26_controller%3DTodoCerdoTodoCerdoBundle%253APage%253Asidebar,1394922275,443f99
+a3b80c,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/,1394922286,
+484282,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Des%26_controller%3DTodoCerdoTodoCerdoBundle%253APage%253Asidebar,1394922286,a3b80c
+445a53,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/producto,1394922292,
+164b7f,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Des%26_controller%3DTodoCerdoTodoCerdoBundle%253APage%253Asidebar,1394922292,445a53
+593cbd,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/,1394922295,
+fb3567,127.0.0.1,GET,http://www.todocerdo.com/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Des%26_controller%3DTodoCerdoTodoCerdoBundle%253APage%253Asidebar,1394922295,593cbd
