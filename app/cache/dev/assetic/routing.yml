@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /home/guillermo/WWW/TodoCerdo/app/config/routing_dev.yml
+    resource: /home/aldobracamonte/PhpProyects/TodoCerdo/app/config/routing_dev.yml

@@ -2953,6 +2953,30 @@ return $response;
 }
 }
 }
+namespace Symfony\Bundle\FrameworkBundle
+{
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel;
+class HttpKernel extends ContainerAwareHttpKernel
+{
+public function forward($controller, array $attributes = array(), array $query = array())
+{
+trigger_error('forward() is deprecated since version 2.2 and will be removed in 2.3.', E_USER_DEPRECATED);
+$attributes['_controller'] = $controller;
+$subRequest = $this->container->get('request')->duplicate($query, null, $attributes);
+return $this->handle($subRequest, HttpKernelInterface::SUB_REQUEST);
+}
+public function render($uri, array $options = array())
+{
+trigger_error('render() is deprecated since version 2.2 and will be removed in 2.3. Use Symfony\Component\HttpKernel\Fragment\FragmentHandler::render() instead.', E_USER_DEPRECATED);
+$options = $this->renderer->fixOptions($options);
+$strategy = isset($options['strategy']) ? $options['strategy'] :'default';
+unset($options['strategy']);
+$this->container->get('fragment.handler')->render($uri, $strategy, $options);
+}
+}
+}
 
 namespace { return $loader; }
             
